@@ -6,13 +6,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import useStyles from '../styles';
+import { Grid } from '@mui/material';
 
-export default function AdminCard({users}) {
-    console.log(users[0].profile.name);
+export default function AdminCard({users, handleDelete}) {
+    console.log(users[0]._id);
   return (
     <>
 
-        {users.map((user) => (
+        {users.map((user, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
             <Card sx={{ maxWidth: 345 }} >
             <CardMedia
                 component="img"
@@ -29,10 +31,11 @@ export default function AdminCard({users}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Update</Button>
-                <Button size="small">Delete</Button>
+                <Button size="small" >Update</Button>
+                <Button size="small" onClick={()=> handleDelete(user._id)}>Delete</Button>
             </CardActions>
             </Card>
+            </ Grid>
         ))}
         
     </>

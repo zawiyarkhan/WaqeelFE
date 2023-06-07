@@ -34,10 +34,8 @@ export const ClientDashboard = () => {
                 </Container>
             </div>
             <Container maxWidth ='md'>
-                <Grid container spacing={4} >
-                    <Grid item xs={12} sm={6} md={4}>
+                <Grid container spacing={2} >
                         {users && <AdminCard  users = {users} />}
-                    </Grid>
                 </Grid>
             </Container>
         </main>

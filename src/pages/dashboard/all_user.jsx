@@ -5,6 +5,7 @@ import useStyles from '../../styles';
 import AdminCard from '../../components/admin_card';
 import MenuAppBar from '../../components/navbar';
 import MiniDrawer from '../../components/drawer';
+import Axios from 'axios';
 
 const DashboardHome = () => {
     const classes = useStyles();
@@ -21,6 +22,20 @@ const DashboardHome = () => {
     },[])
 
 
+    const handleDelete = (id) =>{
+
+        console.log("id:",id);
+        Axios.delete("http://localhost:3000/Delete/" +id,
+        {withCredentials: true, credentials: 'include'})
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })
+    }
+
+
   return (
     <>
         <CssBaseline />
@@ -34,10 +49,8 @@ const DashboardHome = () => {
                 </Container>
             </div>
             <Container maxWidth ='md'>
-                <Grid container spacing={4} >
-                    <Grid item xs={12} sm={6} md={4}>
-                        {users && <AdminCard  users = {users} />}
-                    </Grid>
+                <Grid container spacing={2} >
+                        {users && <AdminCard  users = {users}  handleDelete = {handleDelete}/>}
                 </Grid>
             </Container>
         </main>
