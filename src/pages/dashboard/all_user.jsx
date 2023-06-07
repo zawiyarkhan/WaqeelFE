@@ -11,7 +11,7 @@ const DashboardHome = () => {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:3000/getLawyers')
+        fetch('http://localhost:3000/getAll')
             .then((res) =>{
                 return res.json();
             })

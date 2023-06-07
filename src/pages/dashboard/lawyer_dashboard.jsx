@@ -1,6 +1,10 @@
-import { CssBaseline } from '@mui/material'
-import React from 'react'
-import MiniDrawer from '../../components/drawer'
+import {React, useState, useEffect} from 'react'
+import { CssBaseline } from '@mui/material';
+import { Container, Typography, Grid } from '@mui/material';
+import useStyles from '../../styles';
+import AdminCard from '../../components/admin_card';
+import MenuAppBar from '../../components/navbar';
+import MiniDrawer from '../../components/drawer';
 
 
 export const LawyerDashboard = () => {
@@ -26,7 +30,7 @@ export const LawyerDashboard = () => {
             <div className={classes.container}>
                 <Container maxWidth = 'sm'>
                     <Typography variant='h2' align='center' gutterBottom>
-                        All Users
+                        All Lawyers
                     </Typography>
                 </Container>
             </div>
